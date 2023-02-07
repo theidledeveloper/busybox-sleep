@@ -1,0 +1,19 @@
+name: Check for new version of busybox
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  check-tags:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.TOKEN }}
+    - name: Check for new tags
+      run: |
+        ./scripts/new_version_check.sh
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
