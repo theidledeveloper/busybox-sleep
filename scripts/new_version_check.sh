@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -eu
 
 # REPOSITORY TO CHECK FOR AND SOME CONSTANT VARIABLES
 REPO_OWNER="docker-library"
@@ -9,7 +9,7 @@ FILE="versions.json"
 
 # GET THE SPECIFIC VERSION FROM THE FILE 24 HOURS AGO
 # NEED TO ENCODE @{24.hours.ago} to @%7B24.hours.ago%7D
-version_24_hours_ago=$(curl ${REPOSITORY_PATH}/HEAD@%7B24000.hours.ago%7D/${FILE} | jq -r '.latest.version')
+version_24_hours_ago=$(curl ${REPOSITORY_PATH}/HEAD@%7B24.hours.ago%7D/${FILE} | jq -r '.latest.version')
 
 # GET THE CURRENT VERSION
 current_version=$(curl "${REPOSITORY_PATH}/HEAD/${FILE}" | jq -r '.latest.version')

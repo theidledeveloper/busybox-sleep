@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-tags:
+  check-release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
       with:
         token: ${{ secrets.TOKEN }}
-    - name: Check for new tags
+    - name: Check for new version
       run: |
         ./scripts/new_version_check.sh
       env:
