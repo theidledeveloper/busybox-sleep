@@ -1,4 +1,5 @@
 #!/bin/bash
+# Commit to allow retrigger of schedued task
 set -eu
 
 # REPOSITORY TO CHECK FOR AND SOME CONSTANT VARIABLES
