@@ -18,10 +18,7 @@ Minimal busybox image (1 change) with a sleep cmd override (1 hour).
 
 ![Release Check Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/check_new_version.yml?label=Version%20Check%20Build)
 
-![base Image Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/build_image.yml?label=Image%20Build)
-![glibc Image Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/build_image_glibc.yml?label=glibc%20Image%20Build)
-![musl Image Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/build_image_musl.yml?label=musl%20Image%20Build)
-![uclibc Image Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/build_image_uclibc.yml?label=uclibc%20Image%20Build)
+![Image Build](https://img.shields.io/github/actions/workflow/status/theidledeveloper/busybox-sleep/build_image.yml?label=Image%20Build)
 
 ### Images
 

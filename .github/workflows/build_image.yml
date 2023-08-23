@@ -7,11 +7,13 @@ on:
 
 env:
   DOCKER_USERNAME: theidledeveloper
-  VARIANT: ''
 
 jobs:
   build-image:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        variant: ['', '-glibc', '-musl', '-uclibc']
     steps:
       - uses: actions/checkout@v3
 
@@ -28,10 +30,10 @@ jobs:
           IMAGE_NAME="$(echo ${GITHUB_REPOSITORY} | cut -d: -f1)"
           IMAGE_TAG="${TAG}"
 
-          TAGS="${IMAGE_NAME}:${IMAGE_TAG}${VARIANT},${IMAGE_NAME}:latest${VARIANT}"
+          TAGS="${IMAGE_NAME}:${IMAGE_TAG}${{ matrix.variant }},${IMAGE_NAME}:latest${{ matrix.variant }}"
 
           # Set output parameters.
-          echo "busybox_version=${IMAGE_TAG}${VARIANT}" >> $GITHUB_OUTPUT
+          echo "busybox_version=${IMAGE_TAG}${{ matrix.variant }}" >> $GITHUB_OUTPUT
           echo "tags=${TAGS}" >> $GITHUB_OUTPUT
           echo "aws_cli_version=${TAG}" >> $GITHUB_OUTPUT
 
